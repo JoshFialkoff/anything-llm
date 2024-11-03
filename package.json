@@ -21,8 +21,9 @@
     "prisma:seed": "cd server && npx prisma db seed",
     "prisma:setup": "yarn prisma:generate && yarn prisma:migrate && yarn prisma:seed",
     "prisma:reset": "truncate -s 0 server/storage/anythingllm.db && yarn prisma:migrate",
-    "prod:server": "cd server && yarn start",
+    "prod:server": "cd server && yarn start", // Ensure `yarn start` works in `server` or replace with `node index.js`
     "prod:frontend": "cd frontend && yarn build",
+    "start": "yarn prod:server & yarn prod:frontend",
     "generate:cloudformation": "node cloud-deployments/aws/cloudformation/generate.mjs",
     "generate::gcp_deployment": "node cloud-deployments/gcp/deployment/generate.mjs",
     "verify:translations": "cd frontend/src/locales && node verifyTranslations.mjs"
