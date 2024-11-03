@@ -1,35 +1,100 @@
 {
   "name": "anything-llm",
   "version": "0.2.0",
-  "description": "The best solution for turning private documents into a chat bot using off-the-shelf tools and commercially viable AI technologies.",
-  "main": "index.js",
-  "type": "module",
-  "author": "Timothy Carambat (Mintplex Labs)",
-  "license": "MIT",
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "lint": "cd server && yarn lint && cd ../frontend && yarn lint && cd ../collector && yarn lint",
-    "setup": "cd server && yarn && cd ../collector && yarn && cd ../frontend && yarn && cd .. && yarn setup:envs && yarn prisma:setup && echo \"Please run yarn dev:server, yarn dev:collector, and yarn dev:frontend in separate terminal tabs.\"",
-    "setup:envs": "cp -n ./frontend/.env.example ./frontend/.env && cp -n ./server/.env.example ./server/.env.development && cp -n ./collector/.env.example ./collector/.env && cp -n ./docker/.env.example ./docker/.env && echo \"All ENV files copied!\n\"",
-    "dev:server": "cd server && yarn dev",
-    "dev:collector": "cd collector && yarn dev",
-    "dev:frontend": "cd frontend && yarn dev",
-    "prisma:generate": "cd server && npx prisma generate",
-    "prisma:migrate": "cd server && npx prisma migrate dev --name init",
-    "prisma:seed": "cd server && npx prisma db seed",
-    "prisma:setup": "yarn prisma:generate && yarn prisma:migrate && yarn prisma:seed",
-    "prisma:reset": "truncate -s 0 server/storage/anythingllm.db && yarn prisma:migrate",
-    "prod:server": "cd server && yarn start",
-    "prod:frontend": "cd frontend && yarn build",
-    "start": "yarn prod:server & yarn prod:frontend",
-    "generate:cloudformation": "node cloud-deployments/aws/cloudformation/generate.mjs",
-    "generate::gcp_deployment": "node cloud-deployments/gcp/deployment/generate.mjs",
-    "verify:translations": "cd frontend/src/locales && node verifyTranslations.mjs"
-  },
-  "private": false,
-  "dependencies": {
-    "vite": "^5.4.10"
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "anything-llm",
+      "version": "0.2.0",
+      "license": "MIT",
+      "dependencies": {
+        "vite": "^5.4.10"
+      },
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/@esbuild/aix-ppc64": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz",
+      "integrity": "sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==",
+      "cpu": ["ppc64"],
+      "optional": true,
+      "os": ["aix"],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@esbuild/android-arm": {
+      "version": "0.21.5",
+      "resolved": "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.21.5.tgz",
+      "integrity": "sha512-vCPvzSjpPHEi1siZdlvAlsPxXl7WbOVUBBAowWug4rJHb68Ox8KualB+1ocNvT5fjv6wpkX6o/iEpbDrf68zcg==",
+      "cpu": ["arm"],
+      "optional": true,
+      "os": ["android"],
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    // ... Additional package entries ...
+    "node_modules/vite": {
+      "version": "5.4.10",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-5.4.10.tgz",
+      "integrity": "sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==",
+      "dependencies": {
+        "esbuild": "^0.21.3",
+        "postcss": "^8.4.43",
+        "rollup": "^4.20.0"
+      },
+      "bin": {
+        "vite": "bin/vite.js"
+      },
+      "engines": {
+        "node": "^18.0.0 || >=20.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/vitejs/vite?sponsor=1"
+      },
+      "optionalDependencies": {
+        "fsevents": "~2.3.3"
+      },
+      "peerDependencies": {
+        "@types/node": "^18.0.0 || >=20.0.0",
+        "less": "*",
+        "lightningcss": "^1.21.0",
+        "sass": "*",
+        "sass-embedded": "*",
+        "stylus": "*",
+        "sugarss": "*",
+        "terser": "^5.4.0"
+      },
+      "peerDependenciesMeta": {
+        "@types/node": {
+          "optional": true
+        },
+        "less": {
+          "optional": true
+        },
+        "lightningcss": {
+          "optional": true
+        },
+        "sass": {
+          "optional": true
+        },
+        "sass-embedded": {
+          "optional": true
+        },
+        "stylus": {
+          "optional": true
+        },
+        "sugarss": {
+          "optional": true
+        },
+        "terser": {
+          "optional": true
+        }
+      }
+    }
   }
 }
